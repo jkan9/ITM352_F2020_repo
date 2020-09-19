@@ -12,6 +12,7 @@
             transform-origin: 0 0;
         }
     </style>
+    <style id='localStyle'></style>
 </head>
 <header>
     <h1>Port's Used Smart Phone Store</h1>
@@ -19,6 +20,11 @@
 
 <body>
     <div>
+        <div>
+            <input id="speedSlider" type="range" min=".1" max="5" step=".1" onchange="
+        localStyle.innerHTML = '.rotate img {animation-duration: ' + speedSlider.value + 's;}';
+        " style="direction: rtl;" />
+        </div>
         <main>
             <section class="item" id="HTC" 
             onmouseover="this.className='item rotate'"
