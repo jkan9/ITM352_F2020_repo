@@ -1,19 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <script>
-        var name = "Jonathan";
-        var likesBeer = false;
-        document.write(name + ' does ');
-        if (!likesBeer)
-             document.write('not ');
-        document.write('like beer!');
+      var name = "Jonathan";
+      var likesBeer = true;
+      //document.write(name + ' does ');
+      if (likesBeer == false) {
+        document.write('Beer is something I dislike! ');
+      } else {
+        document.write('I like Beer!');
+      }
+
     </script>
-</body>
+  </body>
+
 </html>
