@@ -8,9 +8,9 @@
     <script>
         function isNonNegInt(val, returnErrors = false) {
             errors = []; 
-            if (Number(val) != val) errors.push('Not a number!'); 
+            if (Number(val) != val) {errors.push('Not a number!'); 
         }
-         else 
+         else {
             if (val < 0) errors.push('Negative value!'); 
             if (parseInt(val) != val) errors.push('Not an integer!');
          }

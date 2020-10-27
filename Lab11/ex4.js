@@ -1,5 +1,4 @@
 function isNonNegIntString(string_to_check, returnErrors=false) {
-    /* this function will check if string_to_check is a non-neg integer. return true if string_to_check is a non negative */
     errors = []; // assume no errors at first
 if(Number(string_to_check) != string_to_check) errors.push('Not a number!'); // Check if string is a number value
 if(string_to_check < 0) errors.push('Negative value!'); // Check if it is non-negative
