@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="products-style.css"/> <!-- Linking Products Style Sheet-->
+    <title>Fruits</title>
+
+    <script>
+        //Set numberItems variable to 5
+        var numberItems = 5;
+
+        //Product Data for Tablets page
+        var product1 = {
+            product: "Apple",
+            price: 1.50,
+            image: "./images/fruits/apple.png",
+            
+        };
+        var product2 = {
+            product: "Banana",
+            price: 2.00,
+            image: "./images/fruits/Banana.jpg",
+            
+        };
+        var product3 = {
+            product: "Mango",
+            price: 2.50,
+            image: "./images/fruits/mango.jpg",
+            
+        };
+        var product4 = {
+            product: "Pineapple",
+            price: 1.00,
+            image: "./images/fruits/pineapple.jpg",
+            
+        };
+        var product5 = {
+            product: "Watermelon",
+            price: 1.75,
+            image: "./images/fruits/watermelon.jpg",
+        };
+
+        //Create an array of the products listed and set it to a variable 
+        var items = [product1, product2, product3, product4, product5];
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 style="font-size: 400%">Fruits</h1>
+    </header>
+
+    <div>
+        <main>
+            <script>
+                //For loop that displays the product name, price, image, and specifications
+                //If i is equal to 0 and if i is less than numberItems then add i and display product information
+                for (i = 0; i <= numberItems; i++) {
+                    document.write(`
+                            <section> 
+                                <div class = "container"> 
+                                    <h2>${items[i].product}</h2>
+                                    <p style = "color:blue; font-size:x-large;">$${items[i].price.toFixed(2)}</p>
+                                    <div class="img">
+                                        <img src = ${items[i].image}> 
+                                        </div>
+                                    </div>
+                                </section>
+                            `)
+                };
+            </script>
+        </main>
+    </div>
+
+    <!-- Button that leads to the Form page on click -->
+    <div class="button">
+            <a href="./form.html" class="button">Press me for Order Page</a>
+    </div>
+</body>
+
+</html>

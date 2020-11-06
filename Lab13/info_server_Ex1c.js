@@ -1,6 +1,9 @@
-var express = require('express'); //must use nps install first
+var express = require('express');
 var app = express();
-app.all('*', function (request, response, next) { //* means any path
+app.use(express.static('./public'));
+app.all('*', function (request, response, next) {
     response.send(request.method + ' to path ' + request.path);
+    next();
 });
+
 app.listen(8080, () => console.log(`listening on port 8080`)); // note the use of an anonymous function here

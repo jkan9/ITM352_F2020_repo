@@ -1,0 +1,67 @@
+
+
+body{
+    margin: 0 auto;
+    text-align: center;
+    display: inline;
+    background-color:white;
+}
+main{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+header{
+  margin-top: -50px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Homepage CSS */
+.column {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+/* Styling all product images */
+img{
+    width: 250px;
+    height: 200px;
+}
+
+/* Styling the products position relative to one another */
+section {
+  float: left;
+  width: 30%;
+  padding: 20px;
+}
+  /* Create border around all products */
+  .container {
+    border-radius: 10em;
+    background-color: rgba(255, 255, 255, 0.52);
+    border: 2px solid black;
+    padding: 30px;
+  }
+
+/* Postion of button on each product page */
+.button{
+  font-size:40px;
+  background-color: rgb(10, 212, 23);
+  color: rgb(0, 0, 0);
+  border-style: solid;
+  border-color: black;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
