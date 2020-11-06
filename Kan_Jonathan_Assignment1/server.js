@@ -6,7 +6,7 @@ var myParser = require("body-parser"); //Require body-parser
 var products = require("./public/products.js"); //Require products_data.js file
 const queryString = require('querystring'); //Requrie the querystring from the form
 
-app.all('*', function (request, response, next) { // this is required because i am using express to route. it will allow me to make requests
+app.all('*', function (request, response, next) { 
     console.log(request.method + ' to ' + request.path); // this writes the request into the console
     next(); 
 });
