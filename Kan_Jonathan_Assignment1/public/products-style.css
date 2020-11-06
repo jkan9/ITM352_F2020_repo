@@ -1,5 +1,4 @@
-
-
+/*Played around with styling use the google and W3school for reference*/
 body{
     margin: 0 auto;
     text-align: center;
@@ -19,7 +18,6 @@ header{
   box-sizing: border-box;
 }
 
-/* Homepage CSS */
 .column {
   float: left;
   width: 50%;
@@ -31,19 +29,17 @@ header{
     display: table;
   }
 
-/* Styling all product images */
 img{
     width: 250px;
     height: 200px;
 }
 
-/* Styling the products position relative to one another */
 section {
   float: left;
   width: 30%;
   padding: 20px;
 }
-  /* Create border around all products */
+  
   .container {
     border-radius: 10em;
     background-color: rgba(255, 255, 255, 0.52);
@@ -51,7 +47,7 @@ section {
     padding: 30px;
   }
 
-/* Postion of button on each product page */
+
 .button{
   font-size:40px;
   background-color: rgb(10, 212, 23);

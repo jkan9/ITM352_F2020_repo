@@ -52,8 +52,7 @@ var products = [
 
 ];
 
-//retrieved from Professor Port
-//Checks if the products in the array is defined
+
 if (typeof module != 'undefined') {
     module.exports.products = products;
 }
