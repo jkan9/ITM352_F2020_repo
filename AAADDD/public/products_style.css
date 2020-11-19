@@ -1,0 +1,69 @@
+/* style referenced from SmartPhoneProducts2 */
+/* general styling */
+html {
+  
+    font-family: 'American TypeWriter', serif;
+    background-color: #faebd7;
+    font-size: 40px;
+    text-align: center; /* Product Images, Price, and Quantity */ 
+  
+  }
+  /*headings*/
+  
+  h1 {
+    font-family: 'American TypeWriter', serif;
+    text-align: center; /* Title Page */
+    font-size: 40px;
+  
+  } 
+  h2 {
+    font-family: 'American TypeWriter', serif;
+    text-align: center; /* Product Names */
+    font-size: 40px;
+  
+  }
+  div {
+    border: 3px;
+    border-color: grey;
+    display: flex;
+    text-align: center;
+  }
+  main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-position: center;
+    background-color:#faebd7;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  input[type = submit] {
+    width: 12em;
+  }
+  
+  footer {
+    text-align: center;
+    font-size: 15px;
+  }
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    border-radius: 8px;
+    border: 3px solid black;
+  }
+  
+  /*image */
+  img {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  border-radius: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  }
+  /* Took from CSS Styling Website /*
+  // my friend helped me with styling and the design// 
