@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="products-style.css" />
+    <link rel="stylesheet" type="text/css" href="items-style.css" />
     <title>Vegetables</title>
 
     <script>
@@ -23,30 +23,30 @@
         var product7 = {
             product: "Broccoli",
             price: 1.00,
-            image: "./images/vegetables/broccoli.png",
+            image: "./images/vegetables/broccoli.PNG",
             
         };
         var product8 = {
             product: "Garlic",
             price: .50,
-            image: "./images/vegetables/Garlic.png",
+            image: "./images/vegetables/Garlic.PNG",
             
         };
         var product9 = {
             product: "Carrot",
             price: 1.25,
-            image: "./images/vegetables/carrot.png",
+            image: "./images/vegetables/carrot.PNG",
             
         };
         var product10 = {
             product: "Tomato",
             price: 2.00,
-            image: "./images/vegetables/tomato.png",
+            image: "./images/vegetables/tomato.PNG",
             
         };
 
         
-        var products = [product6, product7, product8, product9, product10];
+        var items = [product6, product7, product8, product9, product10];
     </script>
 </head>
 
@@ -64,10 +64,10 @@
                     document.write(`
                             <section> 
                                 <div class = "container"> 
-                                    <h2>${products[i].product}</h2>
-                                    <p style = "color:blue; font-size:x-large;">$${products[i].price.toFixed(2)}</p>
+                                    <h2>${items[i].product}</h2>
+                                    <p style = "color:blue; font-size:x-large;">$${items[i].price.toFixed(2)}</p>
                                     <div class="img">
-                                        <img src = ${products[i].image}> 
+                                        <img src = ${items[i].image}> 
                                         </div>
                                     </div>
                                 </section>
