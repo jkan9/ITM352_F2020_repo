@@ -14,17 +14,17 @@ var products = [
     { 
         "product": "Garlic",
         "price": 0.50,
-        "image": "./images/vegetables/Garlic.png",
+        "image": "./images/vegetables/Garlic.PNG",
     },
     { 
         "product": "Carrot",
         "price": 1.25,
-        "image": "./images/vegetables/carrot.png",
+        "image": "./images/vegetables/carrot.PNG",
     },
     { 
         "product": "Tomato",
         "price": 2.00,
-        "image": "./images/vegetables/tomato.png",
+        "image": "./images/vegetables/tomato.PNG",
     },
 
     {
