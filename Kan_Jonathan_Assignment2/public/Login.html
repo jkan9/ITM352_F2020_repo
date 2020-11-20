@@ -7,7 +7,7 @@
 
     window.onload = function () {
         if (params.has('LogError')) {
-            alert('Invalid Username or Passowrd');
+            alert('Invalid Username or Password');
         }
     }
 </script>
@@ -111,16 +111,17 @@
 <body>
 <h1>Login page!</h1>
 
-  <form class="box" action="process_login" method="post">
+  <form name="login" form class="box" action="process_login" method="post">
     <p>Login or register<br> to continue checking out</p>
     <input type="text" name="username" placeholder="Username">
     <input type="password" name="password" placeholder="Password">
-    <h1>New user? Click <a href="register.html"> here</a> to register.</h1><br>
+    <h1>New user? Click <input type="button" name="newuser" value="HERE"
+      onclick="window.location='./register.html' + document.location.search;"></a> to register.</h1><br>
     <input type="submit" name="login" value="Login">
   </form></form>
   <script>
         
-    login.action += document.location.search; // action plus the query string so info won't be lost from the intitial display page
+   login.action += document.location.search; // action plus the query string so info won't be lost from the intitial display page
  </script>
 
 </body>

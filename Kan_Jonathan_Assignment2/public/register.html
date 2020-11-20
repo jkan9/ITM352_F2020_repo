@@ -5,11 +5,14 @@
 <script>
   let params = (new URL(document.location)).searchParams;
 
-  window.onload = function () {
-    if (params.has('LogError')) {
-      alert('Invalid Username or Passowrd');
-    }
-  }
+  window.onload = function () { // creating the function for window.onload
+            //if there are errors in the registration data it will tell the user
+            if (params.has('errors')) {
+
+                console.log("invalid");
+                alert('Fix the following errors: \n' + params.get('errors'));
+            }
+        }    
 </script>
 
 <head>
@@ -115,7 +118,7 @@
 <body>
   <h1>Register page!</h1> 
 
-  <form class="box" action="process_login" method="post">
+  <form name="register" form class="box" action="process_register" method="post">
     <input type="text" name="fullname" size="40" pattern="[a-zA-Z]+[ ]+[a-zA-Z]+"
       placeholder="Enter First & Last Name">
     <input type="text" name="username" size="40" pattern=".[a-z0-9]{3,10}" required
@@ -130,7 +133,7 @@
     <input type="submit" value="Register" id="submit">
     <script>
 
-      login.action += document.location.search; // action plus the query string so info won't be lost from the intitial display page
+     register.action += document.location.search; // action plus the query string so info won't be lost from the intitial display page
     </script>
 
 </body>

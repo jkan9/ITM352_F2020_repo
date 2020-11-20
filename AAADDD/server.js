@@ -43,7 +43,7 @@ app.post("/process_login", function (req, res) {
             req.query.username = the_username;
             console.log(users_reg_data[req.query.username].name);
             req.query.name = users_reg_data[req.query.username].name
-            res.redirect('/form.html?' + queryString.stringify(req.query));
+            res.redirect('/invoice.html?' + queryString.stringify(req.query));
             return;
             //Redirect them to invoice here if they logged in correctly//
         } else {
