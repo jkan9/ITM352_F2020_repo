@@ -1,29 +1,31 @@
 //Used lab 13 examples to create this server
-var express = require('express'); //Run express
 var data = require('./public/products.js');
 var products_array = data.products;
-var app = express(); //Start express
-var myParser = require("body-parser"); //Require body-parser
-var products = require("./public/products.js"); //Require products_data.js file
 const queryString = require('querystring'); //Requrie the querystring from the form
-const user_data_filename = 'user_data.json';
+var express = require('express'); //Run expressvar 
+var app = express(); //Start express
+myParser = require("body-parser"); //Require body-parser
+var user_data_filename = 'user_data.json';
 var fs = require('fs'); //Load file system//
-const { request } = require('express');
+var products = require("./public/products.js"); //Require products_data.js file
+
+
+
+
+
+// check if file exists before reading
+if (fs.existsSync(user_data_filename)) {
+    stats = fs.statSync(user_data_filename);
+    var data = fs.readFileSync(user_data_filename, 'utf-8');
+    users_reg_data = JSON.parse(data);
+} 
+
 app.all('*', function (request, response, next) { // logs method and path into console
     console.log(request.method + ' to ' + request.path); // write request to console
     next(); 
 });
 
 app.use(myParser.urlencoded({ extended: true })); // From lab 13
-
-
-// check if file exists before reading
-if (fs.existsSync(user_data_filename)) {
-    stats = fs.statSync(user_data_filename);
-
-    var data = fs.readFileSync(user_data_filename, 'utf-8');
-    users_reg_data = JSON.parse(data);
-}
 
 app.post("/process_login", function (request, response) {
     // Process login form POST and redirect to logged in page if ok, back to login page if not
