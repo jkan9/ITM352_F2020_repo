@@ -58,68 +58,67 @@ app.post("/process_login", function (request, response) {
 });
 
 
-app.post("/process_register", function (req, res) {
-  qstr = req.body
+app.post("/process_register", function (request, response) {
+  qstr = request.body
   console.log(qstr);
   var errors = [];
 
-  if (/^[A-Za-z]+$/.test(req.body.name)) {
+  if (/^[A-Za-z]+$/.test(request.body.name)) {
   }
   else {
     errors.push('Use Letters Only for Full Name')
   }
   // validating name
-  if (req.body.name == "") {
+  if (request.body.name == "") {
     errors.push('Invalid Full Name');
   }
-  // length of full name is less than 30
-  if ((req.body.fullname.length > 30)) {
+  // the length of full name is less than 25
+  if ((request.body.fullname.length > 25)) {
     errors.push('Full Name Too Long')
   }
-  // length of full name is between 0 and 25 
-if ((req.body.fullname.length > 25 && req.body.fullname.length <0)) {
+  //  the length of full name is btwn 0 & 20 
+if ((request.body.fullname.length > 20 && request.body.fullname.length <0)) {
   errors.push('Full Name Too Long')
 }
-
-  var reguser = req.body.username.toLowerCase(); 
+  var reguser = request.body.username.toLowerCase(); 
   if (typeof users_reg_data[reguser] != 'undefined') { 
     errors.push('Username taken')
   }
 
-  if (/^[0-9a-zA-Z]+$/.test(req.body.username)) {
+  if (/^[0-9a-zA-Z]+$/.test(request.body.username)) {
   }
   else {
     errors.push('Letters And Numbers Only for Username')
   }
 
-  //password is min 8 characters long 
-  if ((req.body.password.length < 8 && req.body.username.length > 20)) {
+  //password is min 6 characters long 
+  if ((request.body.password.length < 6 && request.body.username.length > 20)) {
     errors.push('Password Too Short')
   }
   // check to see if passwords match
-  if (req.body.password !== req.body.repeat_password) { 
+  if (request.body.password !== request.body.repeat_password) { 
     errors.push('Password Not a Match')
   }
 
   if (errors.length == 0) {
      console.log('none');
-     req.query.username = reguser;
-     req.query.name = req.body.name;
-     res.redirect('/invoice.html?' + queryString.stringify(req.query))
+     request.query.username = reguser;
+     request.query.name = request.body.name;
+     response.redirect('/invoice.html?' + queryString.stringify(request.query))
   }
   if (errors.length > 0) {
       console.log(errors)
-      req.query.name = req.body.name;
-      req.query.username = req.body.username;
-      req.query.password = req.body.password;
-      req.query.repeat_password = req.body.repeat_password;
-      req.query.email = req.body.email;
+      request.query.name = request.body.name;
+      request.query.username = request.body.username;
+      request.query.password = request.body.password;
+      request.query.repeat_password = request.body.repeat_password;
+      request.query.email = request.body.email;
 
-      data = JSON.stringify(req.query.name);
+      data = JSON.stringify(request.query.name);
         fs.writeFileSync(user_data_filename, data, "utf-8");
 
-      req.query.errors = errors.join(';');
-      res.redirect('register.html?' + queryString.stringify(req.query))
+      request.query.errors = errors.join(';');
+      response.redirect('register.html?' + queryString.stringify(request.query))
   }
 });
 
@@ -136,7 +135,7 @@ app.post("/process_form", function (request, response) { //POST the data from th
                         hasQuantities=hasQuantities || qty>0; // Checks if quantity > 0
                         hasValidQuantities=hasValidQuantities && isNonNegInt(qty);      
         } 
-        // Runs this part of the if statement if all conditions are met 
+        //This will run when all statement pass
         const stringified = queryString.stringify(POST);
        
         if (hasValidQuantities && hasQuantities) {
