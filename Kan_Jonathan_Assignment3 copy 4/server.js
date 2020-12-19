@@ -65,19 +65,15 @@ app.post("/process_login", function (request, response) {
     console.log(request.body.password)
         console.log(request.body.username)
     if (users_reg_data[login_username].password == request.body.password) {
-      request.query.username = login_username;
-      console.log(users_reg_data[request.query.username].name);
-      request.query.name = users_reg_data[request.query.username].name
-      if (request.body.password == users_reg_data.password) {
-        //if password and username is correct display the invoice
+     //create cookie for username
+     response.cookie('username', `${request.body.username}`, { maxAge: 6000 * 1000 })
+     var user = users_reg_data[request.body.username];
+     console.log(user.email)
+     //create cookie for email
+     response.cookie('email', `${user.email}`)
 
-        //create cookie for username
-        response.cookie('username', `${request.body.username}`, { maxAge: 6000 * 1000 })
-        var user = users_reg_data[request.body.username];
-        console.log(user.email)
-        //create cookie for email
-        response.cookie('email', `${user.email}`)
-      response.redirect('/cart.html?' + queryString.stringify(request.query));}
+     //redirect to cart
+     response.redirect('./index.html?');
       if (Object.keys(LogError).length == 0) { //If no errors
         //the following was taken from Lab15 ex4.js
         session.username = login_username; //add username to user's session
