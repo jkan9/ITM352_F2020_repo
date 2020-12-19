@@ -1,0 +1,199 @@
+<!-- Author: Jonathan Kan -->
+<!-- Date: 11/20/2020 -->
+<!--Display fruits products-->
+<!--Using Assignment 2 codes to work on Assignment 3-->
+<!DOCTYPE html>
+<html>
+<script>
+    
+        // Aquire from Lab 12 
+        //Create a function called isNonNegInt that checks for errors when the user enters a quantity into the textbox
+        function isNonNegInt(q, return_errors = false) {
+            errors = []; //Assume no errors at first
+            if (q == '') q = 0; //Handle inputs as if they are 0
+            if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); //Check string is a number value
+            else if (q < 0) errors.push('<font color="red">Negative value!</font>'); //Check if it is non-neg
+            else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); //Check that it is an integer
+            return return_errors ? errors : (errors.length == 0);}
+
+        
+        //Create a function called checkQuantityTextbox that checks whether or not the user enters a value inside the textbox
+        function checkQuantityTextbox(theTextbox) {//If there are no errors and textbox field is empty, then display 'Quantity' above the textbox
+            errs = isNonNegInt(theTextbox.value, true); 
+            if (errs.length == 0) errs = ['You want:'];//If a valid entry of quantity is inputted, then display 'You want:' above the textbox
+            if (theTextbox.value.trim() == '') errs = ['Quantity'];
+            document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
+        }
+//Add to session, from the amount in the cart
+function add_to_cart (i) {
+    var incart = productmaindisplay[`quantity${i}`].value; 
+    if (isNonNegInt(incart) = true) { 
+        sessionStorage['products${i}'] = incart;
+        console.log(incart) 
+    } 
+   }
+        
+        window.onload = function () {
+            let params = (new URL(document.location)).searchParams; //Get the query string which has the form data
+            if (params.has('purchase_submit')) {
+                has_errors = false; //Assume quantities are valid in the beginning
+                total_qty = 0; //Need to check if something was selected so we will look if the total > 0
+                for (i = 0; i < products.length; i++) {
+                    if (params.has(`quantity${i}`)) {
+                        a_qty = params.get(`quantity${i}`);
+                        // make textboxes sticky
+                        quantity_form[`quantity${i}`].value = a_qty;
+                        total_qty += a_qty;
+                        if (!isNonNegInt(a_qty)) {
+                            has_errors = true; 
+                            checkQuantityTextbox(quantity_form[`quantity${i}`]); //show where the error is
+                        }
+                    }
+                }
+
+                if (has_errors) { //Quantity inputted was not valid
+                    alert("Please enter only valid quantities!"); //Alert user to ONLY enter valid quantities
+                } else if (total_qty == 0) { // just give a general alert
+                    alert("Please select some quantities!"); //Alert to enter quantities if textboxes are empty
+                } else {
+                    window.location = `./login.html${document.location.search}`;
+                    window.stop;
+                }
+            }
+        }
+    
+    
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="products-style.css" />
+    <title>Fruits</title>
+  
+    <script>
+        //Set numberItems variable to 5
+        var numberItems = 5;
+
+        //Product Data for Tablets page
+        var product1 = {
+            product: "Apple",
+            price: 1.50,
+            image: "./images/fruits/apple.png",
+
+        };
+        var product2 = {
+            product: "Banana",
+            price: 2.00,
+            image: "./images/fruits/Banana.jpg",
+
+        };
+        var product3 = {
+            product: "Mango",
+            price: 2.50,
+            image: "./images/fruits/mango.jpg",
+
+        };
+        var product4 = {
+            product: "Pineapple",
+            price: 1.00,
+            image: "./images/fruits/pineapple.jpg",
+
+        };
+        var product5 = {
+            product: "Watermelon",
+            price: 1.75,
+            image: "./images/fruits/watermelon.jpg",
+        };
+
+        //Create an array of the products listed and set it to a variable 
+        var items = [product1, product2, product3, product4, product5];
+    </script>
+</head>
+
+<body>
+   <!--Nav bar-->
+    <!-- Code borrowed from https://www.w3schools.com/howto/howto_js_topnav.asp-->
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+        
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+        
+        .topnav a.active {
+          background-color: #4CAF50;
+          color: white;
+        }
+        </style>
+        </head>
+        <body>
+        
+        <div class="topnav">
+          <a class="active" href="index.html">Home</a>
+          <a href="fruits.html">Fruits</a>
+          <a href="vegetables.html">Vegetables</a>
+          <a href="#about">Merch</a>
+          <a href="shoppingcart.html">Shopping Cart</a>
+          <a href="login.html">Login</a>
+         
+        </div>
+        <form name="productmaindisplay" action="process_cart" method="POST"></form>
+    <header>
+        <h1 style="font-size: 400%">Fruits</h1>
+    </header>
+
+    <div>
+        <main>
+            <script>
+                //For loop that displays the product name, price, image, and specifications
+                //If i is equal to 0 and if i is less than numberItems then add i and display product information
+                for (i = 0; i <= numberItems; i++) {
+                    document.write(`
+                            <section> 
+                                <div class = "container"> 
+                                    <h2>${items[i].product}</h2>
+                                    <p style = "color:blue; font-size:x-large;">$${items[i].price.toFixed(2)}</p>
+                                    <div class="img">
+                                        <img src = ${items[i].image}><br> 
+                                        <label id="quantity${i}_label"}">Quantity</label>
+                                    <input type="text" placeholder="0" name="quantity${i}" 
+                                    onkeyup="checkQuantityTextbox(this);">
+                                        </div>
+                                    </div>
+                                </section>
+                            `);
+                            if (typeof items[`quantity${i}`] != 'undefined' ) {
+                                productmaindisplay[`quantity${i}`].value = cart[`quantity${i}`];
+                            }
+                };
+            </script>
+           
+    
+        </main>
+    </div>
+<footer>
+    <input type="submit" value="Add to cart" name="submitcart" onclick="add_to_cart">
+</footer>
+   
+</body>
+
+</html>

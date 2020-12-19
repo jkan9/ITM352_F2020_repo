@@ -1,0 +1,135 @@
+<!-- Author: Jonathan Kan -->
+<!-- Date: 11/20/2020 -->
+<!--Display vegetables products-->
+<!--Using Assignment 2 codes to work on Assignment 3-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="products-style.css" />
+    <title>Vegetables</title>
+
+    <script>
+        //Set numberItems variable to 5
+        var numberItems = 5;
+
+        //Product Data for Vegetables page
+        var product6 = {
+            product: "Lettuce",
+            price: 1.75,
+            image: "./images/vegetables/lettuce.jpg",
+            
+        };
+        var product7 = {
+            product: "Broccoli",
+            price: 1.00,
+            image: "./images/vegetables/broccoli.PNG",
+            
+        };
+        var product8 = {
+            product: "Garlic",
+            price: .50,
+            image: "./images/vegetables/Garlic.PNG",
+            
+        };
+        var product9 = {
+            product: "Carrot",
+            price: 1.25,
+            image: "./images/vegetables/carrot.PNG",
+            
+        };
+        var product10 = {
+            product: "Tomato",
+            price: 2.00,
+            image: "./images/vegetables/tomato.PNG",
+            
+        };
+
+        
+        var products = [product6, product7, product8, product9, product10];
+    </script>
+</head>
+
+<body>
+    <!--Nav bar-->
+    <!-- Code borrowed from https://www.w3schools.com/howto/howto_js_topnav.asp-->
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+        
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+        
+        .topnav a.active {
+          background-color: #4CAF50;
+          color: white;
+        }
+        </style>
+        </head>
+        <body>
+        
+        <div class="topnav">
+          <a class="active" href="index.html">Home</a>
+          <a href="fruits.html">Fruits</a>
+          <a href="vegetables.html">Vegetables</a>
+          <a href="#about">Merch</a>
+          <a href="shoppingcart.html">Shopping Cart</a>
+          <a href="login.html">Login</a>
+         
+        </div>
+        
+    <header>
+        <h1 style="font-size: 400%"> Vegetables</h1>
+    </header>
+
+    <div>
+        <main>
+            <script>
+                //For loop that displays the product name, price, image, and specifications
+                //If i is equal to 0 and if i is less than numberItems then add i and display product information
+                for (i = 0; i <= numberItems; i++) {
+                    document.write(`
+                            <section> 
+                                <div class = "container"> 
+                                    <h2>${products[i].product}</h2>
+                                    <p style = "color:blue; font-size:x-large;">$${products[i].price.toFixed(2)}</p>
+                                    <div class="img">
+                                        <img src = ${products[i].image}> 
+                                        </div>
+                                    </div>
+                                </section>
+                            `)
+                };
+            </script>
+
+            
+        </main>
+    </div>
+
+    
+    
+
+</body>
+
+</html>
